@@ -37,6 +37,7 @@ In this repo you will find a model pre-trained on a subset of the [Synth 90k](ht
 dataset. You can find the data as TensorFlow records in the `data` folder. The trained model can be tested with
 
 ```
+export PYTHONPATH=$PYTHONPATH:./
 python tools/test_shadownet.py --dataset_dir data/ --weights_path model/shadownet/shadownet_2017-09-29-19-16-33.ckpt-39999
 ```
 
@@ -79,7 +80,7 @@ path/17/5/176_Nevadans_51437.jpg nevadans
 Second you need to convert your dataset into TensorFlow records, as well as extract the character set, with
 
 ```
-python tools/write_text_features --dataset_dir path/to/your/dataset --save_dir path/to/tfrecords_dir --charset_dir path/to/charset_dir
+python tools/write_text_features.py --dataset_dir path/to/your/dataset --save_dir path/to/tfrecords_dir --charset_dir path/to/charset_dir
 ```
 
 All the training images will be scaled to a fixed size (by default (32, 100, 3)) and the dataset will be divided into
